@@ -51,6 +51,7 @@ echo 'GENTOO_MIRRORS="ftp://ftp.free.fr/mirrors/ftp.gentoo.org/ \
 
 # Create necessary directories and copy repos.conf file
 mkdir -p /mnt/gentoo/etc/portage/repos.conf
+mkdir -p /mnt/gentoo/var/db/repos/gentoo
 cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
 
 # Copy the chroot commands script into the chroot environment
