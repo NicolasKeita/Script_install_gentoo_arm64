@@ -2,6 +2,7 @@
 
 # Variables
 LOG_FILE="/var/log/gentoo_setup.log"
+DISK_NAME="/dev/vda"
 
 # Logging function
 log_message() {
@@ -37,8 +38,24 @@ echo "Europe/Paris" > /etc/timezone
 log_message "Installing Linux firmware..."
 emerge --quiet sys-kernel/linux-firmware
 
-#create fstab file
-bash create_fstab.sh
+# Create /etc/fstab file
+log_message "Creating /etc/fstab file..."
+EFI_UUID=$(blkid -s UUID -o value ${DISK_NAME}1)
+cat <<EOF > /etc/fstab
+# /etc/fstab: static file system information.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+
+# ${DISK_NAME}1 is the EFI system partition
+UUID=${EFI_UUID}  /boot/efi  vfat  umask=0077  0  2
+
+# ${DISK_NAME}2 is the swap partition
+${DISK_NAME}2  none  swap  defaults  0  0
+
+# ${DISK_NAME}3 is the root partition
+${DISK_NAME}3  /  ext4  defaults  0  1
+EOF
 
 # End of script
 log_message "Setup completed successfully!"
+

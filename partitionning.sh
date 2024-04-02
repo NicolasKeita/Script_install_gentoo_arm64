@@ -8,7 +8,8 @@ SWAP_PARTITION="${DEVICE}2"
 ROOT_PARTITION="${DEVICE}3"
 GENTOO_MIRROR="https://distfiles.gentoo.org/releases/arm64/autobuilds/20240329T230405Z/stage3-arm64-openrc-20240329T230405Z.tar.xz"
 MAKE_CONF="/mnt/gentoo/etc/portage/make.conf"
-CHROOT_SCRIPT="install_gentoo_chroot_commands.sh"
+#CHROOT_SCRIPT="install_gentoo_chroot_commands.sh"
+CHROOT_SCRIPT="2.sh"
 REPOS_CONF="/mnt/gentoo/etc/portage/repos.conf/gentoo.conf"
 
 # Function to print messages
