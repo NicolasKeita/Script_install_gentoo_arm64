@@ -2,7 +2,7 @@
 
 # Variables
 LOG_FILE="/var/log/gentoo_setup.log"
-DISK_NAME="/dev/vda"
+DISK_NAME="/dev/sda"
 
 # Logging function
 log_message() {
@@ -37,7 +37,7 @@ emerge --config sys-libs/timezone-data
 
 # Install Linux firmware
 log_message "Installing Linux firmware..."
-#emerge --quiet sys-kernel/linux-firmware
+emerge --quiet sys-kernel/linux-firmware
 
 # Create /etc/fstab file
 log_message "Creating /etc/fstab file..."
