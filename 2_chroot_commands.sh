@@ -33,10 +33,11 @@ emerge --depclean
 # Set timezone
 log_message "Setting timezone to Europe/Paris..."
 echo "Europe/Paris" > /etc/timezone
+emerge --config sys-libs/timezone-data
 
 # Install Linux firmware
 log_message "Installing Linux firmware..."
-emerge --quiet sys-kernel/linux-firmware
+#emerge --quiet sys-kernel/linux-firmware
 
 # Create /etc/fstab file
 log_message "Creating /etc/fstab file..."

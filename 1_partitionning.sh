@@ -40,6 +40,7 @@ configure_make_conf() {
     NUM_CORES=$(nproc)
     sed -i '/COMMON_FLAGS=/s/=.*/="-march=armv8-a -O2 -pipe"/' "$MAKE_CONF"
     echo "MAKEOPTS=\"-j$NUM_CORES\"" >> "$MAKE_CONF"
+    echo 'FEATURES="buildpkg"' >> "$MAKE_CONF"
     echo 'L10N="fr"' >> "$MAKE_CONF"
     echo 'VIDEO_CARDS="fbdev vesa"' >> "$MAKE_CONF"
     echo 'INPUT_DEVICES="libinput keyboard mouse"' >> "$MAKE_CONF"
@@ -87,7 +88,6 @@ cp /mnt/gentoo/usr/share/portage/config/repos.conf "$REPOS_CONF"
 print_message "Copying chroot commands script..."
 cp -L /etc/resolv.conf /mnt/gentoo/etc/
 cp "/root/$CHROOT_SCRIPT" "/mnt/gentoo/root/$CHROOT_SCRIPT"
-cp "/root/create_fstab.sh" "/mnt/gentoo/root/create_fstab.sh"
 
 # Mounting proc, dev, and sys filesystems
 print_message "Mounting proc, dev, and sys filesystems..."
