@@ -2,7 +2,7 @@
 set -e
 
 # Variables
-DEVICE="/dev/vda"
+DEVICE="/dev/sda"
 EFI_PARTITION="${DEVICE}1"
 SWAP_PARTITION="${DEVICE}2"
 ROOT_PARTITION="${DEVICE}3"
